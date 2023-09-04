@@ -1,0 +1,19 @@
+h1{
+    border-bottom: red;
+    border-bottom-style: dashed;
+    color:rgb(88, 88, 73)
+}
+
+p{
+    color:red;
+    border:1px solid black;
+    overflow: hidden;
+}
+h1{
+    overflow: hidden;
+}
+#firstImg{
+    float:right;
+    border-radius: 50px;
+    
+}
