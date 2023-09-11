@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Designing</title>
+    <style>
+        div{
+            /* border:1px solid black; */
+            padding:3px;
+            margin:3px
+        }
+        #topMenu li{
+            border:1px solid black;
+            display: inline;
+        }
+        #topMenu{
+            float: right;
+            border:1px solid black;
+            width:50%;
+        }
+        #content{
+            clear: right;
+        }
+        #header{
+            overflow: hidden;
+            
+        }
+        .left{
+            float: left;
+            width:20%;
+        }
+        .right{
+            background-color: aqua;
+            float:right;
+            width: 20%;
+        }
+        #footer{
+            clear:both
+        }
+        #content{overflow: hidden;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div style="float:left; width:100px">Logo</div>
+        <ul id="topMenu">
+            <li><a href="">Link</a></li>
+            <li><a href="">Link</a></li>
+            <li><a href="">Link</a></li>
+            <li><a href="">Link</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae pariatur inventore omnis enim tenetur quasi similique optio odio excepturi laborum, nihil aut repellendus vero repudiandae laboriosam, saepe hic incidunt rerum!</div>
+        <div class="left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae pariatur inventore omnis enim tenetur quasi similique optio odio excepturi laborum, nihil aut repellendus vero repudiandae laboriosam, saepe hic incidunt rerum!</div>
+        <div class="right">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae pariatur inventore omnis enim tenetur quasi similique optio odio excepturi laborum, nihil aut repellendus vero repudiandae laboriosam, saepe hic incidunt rerum!</div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui iusto eius quisquam quis numquam ipsa exercitationem temporibus ha. Officia numquam voluptatum eligendi officiis cumque aliquid voluptate est debitis obcaecati facere, recusandae maxime, tempore cupiditate voluptatem ab nostrum deleniti ratione harum!
+    </div>
+    <div id="footer">footer</div>
+</body>
+</html>

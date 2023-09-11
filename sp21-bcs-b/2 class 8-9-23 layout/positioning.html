@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+    <style>
+        div{
+            border:1px solid black;
+            margin:10px;
+        }
+        #first{
+            
+        }
+        #second{
+            position: relative;
+            top:10px;
+            left:20px;
+            background-color: yellow;
+            z-index: 2;
+    }
+        #third{
+            position: relative;
+            z-index: 2;
+            background-color: aqua;
+        }
+        #fourth{}
+        #chat{
+            background-color: black;
+            color:white;
+            position: fixed;
+            bottom: 0px;
+            right:0px
+        }
+        #nisi{
+            background-color: red;
+            position: absolute;
+            top:10px;
+            left:10px
+        }
+        #menu{
+            background-color: lightcoral;
+            position:sticky;
+            top:0px;
+        }
+    </style>    
+</head>
+<body>
+    <div id="first">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae rerum doloribus temporibus a distinctio nisi natus, quam repellat magnam possimus. Aperiam alias consequatur temporibus blanditiis voluptatem optio odit officia molestiae!</div>
+    <div id="menu">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ut doloremque porro mollitia aliquam laborum veniam ea animi. Accusantium facilis nisi quos numquam reprehenderit inventore amet architecto aperiam laboriosam quia!</div>
+    <div id="second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ut doloremque porro mollitia aliquam laborum veniam ea animi. Accusantium facilis nisi quos numquam reprehenderit inventore amet architecto aperiam laboriosam quia!</div>
+    <div id="chat">Chat With Ne</div>
+    <div id="third">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus officia <span id="nisi">nisi</span> cum dicta odio ad illum dolorem maiores? Et, blanditiis! Doloremque asperiores eius delectus cum, eum quo impedit totam atque?</div>
+
+    <div id="fourth">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut enim deleniti reiciendis aspernatur nisi similique accusamus veritatis dolorem quaerat est cupiditate molestias deserunt repellendus, aperiam recusandae ratione consectetur eaque hic.</div>
+    <div id="fourth">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut enim deleniti reiciendis aspernatur nisi similique accusamus veritatis dolorem quaerat est cupiditate molestias deserunt repellendus, aperiam recusandae ratione consectetur eaque hic.</div>
+    <div id="fourth">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut enim deleniti reiciendis aspernatur nisi similique accusamus veritatis dolorem quaerat est cupiditate molestias deserunt repellendus, aperiam recusandae ratione consectetur eaque hic.</div>
+    <div id="fourth">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut enim deleniti reiciendis aspernatur nisi similique accusamus veritatis dolorem quaerat est cupiditate molestias deserunt repellendus, aperiam recusandae ratione consectetur eaque hic.</div>
+    <div id="fourth">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut enim deleniti reiciendis aspernatur nisi similique accusamus veritatis dolorem quaerat est cupiditate molestias deserunt repellendus, aperiam recusandae ratione consectetur eaque hic.</div>
+</body>
+</html>
