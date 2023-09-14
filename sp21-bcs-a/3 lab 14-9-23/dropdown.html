@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #menu > li{
+        display: inline;
+    }
+    #menu li:hover{
+        background-color: black;
+        color:white;
+    }
+    #menu li:hover a{
+        background-color: black;
+        color:white;
+    }
+    .submenu{
+        list-style-type: none;
+        position: absolute;
+        left:-40px;
+        display: none;
+    }
+    .has-submenu{
+        position: relative;
+    }
+    .has-submenu:hover .submenu{
+        display:block
+    }
+
+</style>
+<body>
+    <ul id="menu">
+        <li><a href="">Sme Link</a></li>
+        <li class="has-submenu"><a href="">DropDown Menu</a>
+        <ul class="submenu">
+            <li><a href="">Some link</a></li>
+            <li><a href="">Some link</a></li>
+            <li><a href="">Some link</a></li>
+            <li><a href="">Some link</a></li>
+            <li><a href="">Some link</a></li>
+        </ul>
+    </li>
+        <li><a href="">Sme Link</a></li>
+        <li><a href="">Sme Link</a></li>
+    </ul>
+</body>
+</html>
