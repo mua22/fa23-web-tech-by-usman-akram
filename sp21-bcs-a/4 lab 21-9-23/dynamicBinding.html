@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("Hello A Section");
+        function doBindings(){
+            let loginBtn = document.getElementById("loginBtn");
+        loginBtn.onclick = handleLogin;
+
+        }
+        // setTimeout(doBindings,2000);
+        window.onload = doBindings;
+        function handleLogin(){
+            let input = document.getElementById("email");
+            // alert(input.value);
+            if(input.value){
+                input.classList.remove("error");
+                document.getElementById("errorMessage").style.display="none"
+
+            }else {
+                input.classList.add("error");
+                document.getElementById("errorMessage").style.display="block"
+            }
+        }
+    </script>
+    <style>
+        .error{
+            border-bottom: 10px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <button id="myBtn" onclick="alert('You clicked me')">Click Me</button>
+
+    <hr>
+    <input  type="text" id="email" value="usman"/>
+    <div id="errorMessage" style="display: none;">Invalid Field</div>
+    <button id="loginBtn">Login</button>
+</body>
+</html>
