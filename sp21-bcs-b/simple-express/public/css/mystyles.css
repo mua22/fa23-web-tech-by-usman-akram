@@ -1,0 +1,8 @@
+/* This is CSS file which is served Via express */
+h1{
+    background-color: lightgray;
+}
+
+#menu li{
+    display: inline;
+}
