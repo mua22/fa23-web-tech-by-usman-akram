@@ -1,0 +1,9 @@
+h1{
+    background-color: black;
+    color:white
+}
+/* css file for a section  */
+
+#menu li{
+    display: inline;
+}
