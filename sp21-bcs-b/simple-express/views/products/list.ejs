@@ -1,0 +1,21 @@
+<h1><%= pageTitle %></h1>
+
+<% if (products.length==0) { %>
+ <p>No products to list</p>
+<% } else { %>
+    <% for( let index = 0; index < products.length; index++ ) { %>
+    <div class="product">
+        <h2><%= products[index].title %></h2>
+        <p>PKR <%= products[index].price %></p>
+    </div>
+    <% } %>
+<% } %>
+
+<style>
+    h1{
+        background-color: red !important;
+    }
+</style>
+
+<%-contentFor("styles") %>
+<link rel="stylesheet" href="/css/products.css">
