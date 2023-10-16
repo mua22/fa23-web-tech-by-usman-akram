@@ -10,6 +10,7 @@ app.use(express.static("public"));
 // app.set("views", "views");
 app.set("view engine", "ejs");
 app.use(expressLayouts);
+app.use(express.json());
 // app.get("/", function (req, res) {
 //   res.send("<h1>Home Page</h1>");
 // });
@@ -27,10 +28,23 @@ app.get("/products", function (req, res) {
 app.get("/contact-us", function (req, res) {
   res.render("contact-us");
 });
+const Car = require("./models/car");
+
+app.get("/posts/:month/:day", function (req, res) {
+  return res.send(req.params);
+});
+let carsApiRouter = require("./routes/api/cars");
+let booksApiRouter = require("./routes/api/books");
+app.use(carsApiRouter);
+app.use(booksApiRouter);
 app.get("/", function (req, res) {
   res.render("landing-page");
 });
-
+const mongoose = require("mongoose");
+mongoose
+  .connect("mongodb://localhost/sp21-bcs-b", { useNewUrlParser: true })
+  .then(() => console.log("Connected to Mongo...."))
+  .catch((error) => console.log(error.message));
 app.listen(5000, function () {
   console.log("Server started at localhost:5000");
 });
