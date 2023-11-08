@@ -1,6 +1,6 @@
-const { response } = require("express");
 var expressLayouts = require("express-ejs-layouts");
 let express = require("express");
+let University = require("./models/university");
 // run following command to install express
 // npm i express
 // install nodemon globally once in your system like
@@ -8,7 +8,8 @@ let express = require("express");
 let server = express();
 server.use(express.static("public"));
 server.set("view engine", "ejs");
-
+server.use(express.json());
+server.use(express.urlencoded());
 server.use(expressLayouts);
 
 /**
@@ -22,9 +23,23 @@ server.get("/hobbies", function (req, res) {
 server.get("/skills", function (req, res) {
   res.render("skills");
 });
-server.get("/", function (req, res) {
-  res.send("<h1>Hello</h1>");
+
+server.get("/posts/:month/:day", function (req, res) {
+  return res.send(req.params);
 });
+server.use("/", require("./routes/site/auth"));
+server.use("/", require("./routes/api/universities"));
+server.use("/", require("./routes/api/courses"));
+
+server.get("/", function (req, res) {
+  res.render("homepage");
+});
+const mongoose = require("mongoose");
+//mongodb+srv://<username>:<password>@cluster0.vidd3.mongodb.net/
+mongoose
+  .connect("mongodb://localhost/sp21-bcs-a", { useNewUrlParser: true })
+  .then(() => console.log("Connected to Mongo...."))
+  .catch((error) => console.log(error.message));
 
 server.listen(5000, function () {
   console.log("Server Started at localhost:5000");
