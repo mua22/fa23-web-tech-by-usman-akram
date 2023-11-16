@@ -12,18 +12,32 @@ server.use(express.json());
 server.use(express.urlencoded());
 server.use(expressLayouts);
 
+var cookieParser = require("cookie-parser");
+server.use(cookieParser());
+var session = require("express-session");
+server.use(session({ secret: "Shh, its a secret!" }));
+
+const sessionAuth = require("./middlewares/sessionAuth");
+const logger = require("./middlewares/logger");
+const maintenance = require("./middlewares/maintenance");
+server.use(logger);
+// server.use(maintenance);
 /**
  * First parameter is uri
  * Secind Parameter is a call =back function whihc will be called when a request to / with get method will be received
  *
  */
-server.get("/hobbies", function (req, res) {
+server.get("/hobbies", maintenance, function (req, res) {
   res.render("hobbies");
 });
-server.get("/skills", function (req, res) {
+server.get("/skills", sessionAuth, function (req, res) {
   res.render("skills");
 });
 
+server.get("/page-views", (req, res) => {
+  // res.cookie("location", "Lahore");
+  return res.send(req.cookies);
+});
 server.get("/posts/:month/:day", function (req, res) {
   return res.send(req.params);
 });
@@ -35,6 +49,7 @@ server.get("/", function (req, res) {
   res.render("homepage");
 });
 const mongoose = require("mongoose");
+const { append } = require("express/lib/response");
 //mongodb+srv://<username>:<password>@cluster0.vidd3.mongodb.net/
 mongoose
   .connect("mongodb://localhost/sp21-bcs-a", { useNewUrlParser: true })
