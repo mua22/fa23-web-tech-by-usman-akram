@@ -12,6 +12,11 @@
     <%- include('./partials/top-menu') %>
     From Layout
     <hr>
+    <div class="container">
+        <% if (flash) { %>
+            <div class="alert alert-<%-flash.type%>"><%- flash.message %></div>
+           <% } %>
+    </div>
     <%- body  %>
     <hr>
     Footer

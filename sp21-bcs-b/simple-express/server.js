@@ -60,7 +60,11 @@ let booksApiRouter = require("./routes/api/books");
 app.use(carsApiRouter);
 app.use(booksApiRouter);
 app.use("/", require("./routes/site/auth"));
+app.use("/", require("./routes/site/books"));
+
 app.get("/", function (req, res) {
+  // let flash = req.session.flash;
+  // req.session.flash = null;
   res.render("landing-page", {});
 });
 const mongoose = require("mongoose");
