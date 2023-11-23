@@ -13,6 +13,9 @@
     
     <%- include('./partials/menu') %>
     <hr>
+    <% if (flash) { %>
+     <div class="alert alert-<%= flash.type %>"><%= flash.message %></div>
+    <% } %>
     <%- body %>
     <hr>
 </body>

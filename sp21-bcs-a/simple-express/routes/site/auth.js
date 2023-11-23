@@ -5,13 +5,26 @@ let User = require("../../models/user");
 router.get("/login", (req, res) => {
   res.render("auth/login");
 });
+router.get("/logout", (req, res) => {
+  req.session.user = null;
+  res.redirect("/login");
+});
 router.post("/login", async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
-  if (!user) return res.redirect("/login");
+  if (!user) {
+    req.session.flash = { type: "danger", message: "No User Found" };
+    return res.redirect("/register");
+  }
   let valid = await bcrypt.compare(req.body.password, user.password);
-  if (!valid) return res.redirect("/login");
-  req.session.user = user; //actually logging in
-  return res.redirect("/");
+  if (!valid) {
+    req.session.flash = { type: "danger", message: "Unable to Login" };
+    return res.redirect("/login");
+  }
+  {
+    req.session.user = user; //actually logging in
+    req.session.flash = { type: "success", message: "Logged In Successfully" };
+    return res.redirect("/");
+  }
 });
 
 router.get("/register", (req, res) => {

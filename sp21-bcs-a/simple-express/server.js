@@ -21,13 +21,14 @@ const sessionAuth = require("./middlewares/sessionAuth");
 const logger = require("./middlewares/logger");
 const maintenance = require("./middlewares/maintenance");
 server.use(logger);
+server.use(require("./middlewares/common"));
 // server.use(maintenance);
 /**
  * First parameter is uri
  * Secind Parameter is a call =back function whihc will be called when a request to / with get method will be received
  *
  */
-server.get("/hobbies", maintenance, function (req, res) {
+server.get("/hobbies", function (req, res) {
   res.render("hobbies");
 });
 server.get("/skills", sessionAuth, function (req, res) {
