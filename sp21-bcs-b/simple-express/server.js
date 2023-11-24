@@ -24,6 +24,7 @@ app.use(require("./middlewares/common"));
 const maintenance = require("./middlewares/maintenance");
 const logger = require("./middlewares/logger");
 const sessionauth = require("./middlewares/sessionauth");
+const admin = require("./middlewares/admin");
 // app.use(logger);
 app.get("/products", logger, function (req, res) {
   let products = [
@@ -59,13 +60,17 @@ let carsApiRouter = require("./routes/api/cars");
 let booksApiRouter = require("./routes/api/books");
 app.use(carsApiRouter);
 app.use(booksApiRouter);
+app.use("/admin", sessionauth, admin, require("./routes/admin/books"));
+
 app.use("/", require("./routes/site/auth"));
 app.use("/", require("./routes/site/books"));
 
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
   // let flash = req.session.flash;
   // req.session.flash = null;
-  res.render("landing-page", {});
+  let Book = require("./models/book");
+  let books = await Book.find();
+  res.render("landing-page", { books });
 });
 const mongoose = require("mongoose");
 const { cookie } = require("express/lib/response");

@@ -1,0 +1,37 @@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <a class="btn btn-info" href="/admin/books/add" >Add New Book</a>
+        <% if (books.length==0) { %>
+         <tr><td colspan="3">No Books to display</td></tr>
+        <% } %>
+        <% for( let index = 0; index < books.length; index++ ) { %>
+            <tr>
+                <td><%= books[index].title %></td>
+                <td><%= books[index].author %></td>
+                <td>
+                    <a href="/admin/books/edit/<%= books[index]._id %>" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/admin/books/delete/<%= books[index]._id %>" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+Showing Page: <%= page %>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="/admin/books/<%= page-1 %>">Previous</a></li>
+      <% for( let index = 1; index <= totalPages; index++ ) { %>
+        <li class="page-item"><a class="page-link" href="/admin/books/<%= index %>"><%= index %></a></li
+      <% } %>
+      
+      <li class="page-item"><a class="page-link" href="/admin/books/<%= page+1 %>">Next</a></li>
+    </ul>
+  </nav>
