@@ -11,15 +11,25 @@
 </head>
 <body>
     
-    <%- include('./partials/menu') %>
+    <ul id="menu">
+        <li><a href="/">Main Site</a></li>
+        <li><a href="/admin/universities">Admin Home</a></li>
+        <li><a href="/admin/universities">Universities CRUD</a></li>
+        
+        
+        <% if (user) { %>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        <% } %>    
+        
+    </ul>
     <hr>
     <% if (flash) { %>
      <div class="alert alert-<%= flash.type %>"><%= flash.message %></div>
     <% } %>
-    <div class="container">
-        <%- body %>
-    </div>
-    
+    <%- body %>
     <hr>
 </body>
 </html>

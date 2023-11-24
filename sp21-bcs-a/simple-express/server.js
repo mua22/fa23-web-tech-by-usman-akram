@@ -18,6 +18,7 @@ var session = require("express-session");
 server.use(session({ secret: "Shh, its a secret!" }));
 
 const sessionAuth = require("./middlewares/sessionAuth");
+const admin = require("./middlewares/admin");
 const logger = require("./middlewares/logger");
 const maintenance = require("./middlewares/maintenance");
 server.use(logger);
@@ -42,12 +43,20 @@ server.get("/page-views", (req, res) => {
 server.get("/posts/:month/:day", function (req, res) {
   return res.send(req.params);
 });
+server.use(
+  "/admin",
+  sessionAuth,
+  admin,
+  require("./routes/admin/universities")
+);
 server.use("/", require("./routes/site/auth"));
 server.use("/", require("./routes/api/universities"));
 server.use("/", require("./routes/api/courses"));
 
-server.get("/", function (req, res) {
-  res.render("homepage");
+server.get("/", async function (req, res) {
+  let University = require("./models/university");
+  let universities = await University.find().sort({ city: 1 });
+  res.render("homepage", { universities });
 });
 const mongoose = require("mongoose");
 const { append } = require("express/lib/response");

@@ -1,5 +1,9 @@
 <ul id="menu">
     <li><a href="/">Home</a></li>
+    <% if (user?.role=="admin") { %>
+        <li><a href="/admin/universities">Admin Area</a></li>
+    <% } %>
+    
     <li><a href="/hobbies">Hobbies</a></li>
     <li><a href="/skills">Skills</a></li>
     <li><a href="/contact-us">Contact Us</a></li>

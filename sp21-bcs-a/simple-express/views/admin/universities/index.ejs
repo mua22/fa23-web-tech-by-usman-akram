@@ -1,0 +1,26 @@
+<h2>Universities Admin CRUD</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <a href="/admin/universities/add" class="btn btn-info">Add New University</a>
+        <% if (universities.length==0) { %>
+         <tr><td colspan="3">No Data to list</td></tr>
+        <% } %>
+        <% for( let index = 0; index < universities.length; index++ ) { %>
+            <tr>
+                <td><%= universities[index].name %></td>
+                <td><%= universities[index].city %></td>
+                <td>
+                    <a href="/admin/universities/edit/<%= universities[index]._id %>" class="btn btn-warning">Edit</a>
+                    <a href="/admin/universities/delete/<%= universities[index]._id %>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
