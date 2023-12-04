@@ -1,0 +1,7 @@
+h1{
+    border: 1px solid red
+}
+
+#menu li{
+    display: inline; margin-left: 2px;
+}
