@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./screens/Login";
 import HomePage from "./screens/HomePage";
+import SortExample from "./screens/SortExample";
 function App() {
   return (
     <div>
@@ -10,6 +11,7 @@ function App() {
         <TopBar />
         <div className="container">
           <Routes>
+            <Route path="/sort-example" element={<SortExample />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<HomePage />} />
           </Routes>

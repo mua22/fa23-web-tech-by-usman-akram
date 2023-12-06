@@ -10,6 +10,9 @@ const TopBar = () => {
         <li>
           <Link to="/login">Login</Link>
         </li>
+        <li>
+          <Link to="/sort-example">Sort Example</Link>
+        </li>
       </ul>
     </div>
   );
