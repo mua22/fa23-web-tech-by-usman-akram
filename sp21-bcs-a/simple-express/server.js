@@ -1,12 +1,15 @@
 var expressLayouts = require("express-ejs-layouts");
 let express = require("express");
+let cors = require("cors");
 let University = require("./models/university");
 // run following command to install express
 // npm i express
 // install nodemon globally once in your system like
 //npm i -g nodemon
 let server = express();
+server.use(cors());
 server.use(express.static("public"));
+
 server.set("view engine", "ejs");
 server.use(express.json());
 server.use(express.urlencoded());

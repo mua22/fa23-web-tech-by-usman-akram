@@ -6,12 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import SortExample from "./screens/SortExample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-    {/* <SortExample /> */}
-  </React.StrictMode>
-);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

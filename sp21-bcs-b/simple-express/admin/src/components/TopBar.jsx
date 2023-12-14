@@ -8,6 +8,9 @@ const TopBar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/books">Books</Link>
+        </li>
+        <li>
           <Link to="/login">Login</Link>
         </li>
         <li>
